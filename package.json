@@ -1,0 +1,27 @@
+{
+    "name": "batch-convert",
+    "version": "0.1.0",
+    "description": "Converts a bunch of images including pdf to a target image with a specific format and size.",
+    "main": "index.js",
+    "dependencies": {
+        "gm": "^1.23.0"
+    },
+    "scripts": {
+        
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/chaspi/batch-convert.git"
+    },
+    "keywords": [
+        "image",
+        "converter",
+        "pdf",
+        "batch"
+    ],
+    "author": "Dominik Kaspar <dominik.kaspar@chaspi.ch>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/chaspi/batch-convert/issues"
+    }
+}
