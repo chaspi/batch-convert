@@ -6,8 +6,12 @@
     "dependencies": {
         "gm": "^1.23.0"
     },
+    "devDependencies": {
+        "chai": "^2.3.0",
+        "mocha": "^2.5.3"
+    },
     "scripts": {
-        
+        "test": "./node_modules/.bin/mocha --reporter spec"
     },
     "repository": {
         "type": "git",
