@@ -11,26 +11,33 @@ function countingCallback(array, callback) {
     var i = 0;
     return function () {
         if (++i == array.length) {
-            callback();
+            if (callback) {
+                callback();
+            }
         }
     }
 }
 
-exports.convert = function (inputDir, outputDir, options, callback) {
-    if (fs.lstatSync(outputDir).isDirectory() && !fs.existsSync(outputDir)) {
-        fs.mkdirSync(outputDir);
+exports.convert = function (input, output, options, callback) {
+    if (!output) {
+        output = "."
     }
 
-    if (fs.lstatSync(inputDir).isFile()) {
-        var file = pa.basename(inputDir)
-        inputDir = pa.dirname(inputDir)
-        processFile(inputDir, outputDir, options, file, callback);
-    } else {
-        var files = fs.readdirSync(inputDir);
+    // Create output dir if it does not exist already
+    if (!fs.existsSync(output)) {
+        fs.mkdirSync(output);
+    }
+
+    if (fs.lstatSync(input).isFile()) { // Handle files
+        var file = pa.basename(input)
+        input = pa.dirname(input)
+        processFile(input, output, options, file, callback);
+    } else { // Handle dirs
+        var files = fs.readdirSync(input);
         var cc = countingCallback(files, callback);
         files.forEach(function (file) {
-            if (fs.lstatSync(inputDir + '/' + file).isFile()) {
-                processFile(inputDir, outputDir, options, file, cc);
+            if (fs.lstatSync(input + '/' + file).isFile()) {
+                processFile(input, output, options, file, cc);
             } else {
                 cc();
             }
