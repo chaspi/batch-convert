@@ -19,9 +19,7 @@ function countingCallback(array, callback) {
 }
 
 exports.convert = function (input, output, options, callback) {
-    if (!output) {
-        output = "."
-    }
+    output == output || '.';
 
     // Create output dir if it does not exist already
     if (!fs.existsSync(output)) {
@@ -60,13 +58,13 @@ function processFile(inputDir, outputDir, options, file, callback) {
 
 function process(inputDir, outputDir, fileName, fileType, option, callback) {
     var input = inputDir + '/' + fileName + '.' + fileType;
-    var output = outputDir + '/' + fileName + (option.postfix ? option.postfix : '') + '.' + format;
+    var output = outputDir + '/' + fileName + (option.postfix ? option.postfix : '') + '.' + (option.format || format);
     console.log('convert ' + input + ' to ' + output + '. ...');
     var image = gm(input);
     if (option) {
         image = image.resize(option.width, option.height);
     }
-    image.quality(quality).setFormat(format).write(output, function (err) {
+    image.quality(option.quality || quality).setFormat(option.format || format).write(output, function (err) {
         console.log('... ' + (err ? err : output) + ' successfully converted.');
         if (callback) {
             callback();
