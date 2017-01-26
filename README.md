@@ -2,11 +2,12 @@ batch-convert
 =============
 
 A small library to convert images or pdf files from a source to a target folder in a 
-different format and size.
+different format and size. For one source file the output can be several images in 
+different sizes and formats by providing an array of options.
 
 ## Installation
 
-  npm install batch-convert --save
+    npm install batch-convert --save
 
 ## Usage
 
@@ -32,8 +33,8 @@ __possible options__:
 
     {
         'height': [in pixel]
-        'with': [in pixel]
-        'postfix': [fs characters]
+        'width': [in pixel]
+        'postfix': [allowed fs characters]
         'quality': [0-100], default = 100
         'format': [jpg, png, gif, ...], default = 'jpg'
     }
