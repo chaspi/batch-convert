@@ -7,6 +7,7 @@ var pa = require('path');
 var quality = 100;
 var format = 'jpg';
 
+
 function countingCallback(array, callback) {
     var i = 0;
     return function () {
@@ -18,24 +19,36 @@ function countingCallback(array, callback) {
     }
 }
 
-exports.convert = function (input, output, options, callback) {
-    output == output || '.';
+/**
+ * @callback callback
+ */
 
+/**
+ * Converts all files in the source folder or the soruce file into the destiantion formats
+ * defined by the options into the target directory.
+ * 
+ * @param {string} [input=.] - the input directory or file
+ * @param {string} [outputDir=.] - the output directory
+ * @param {{width: number, height: number, postfix: string, quality: number, format: string}[]} options - 
+ *              the convert options apllied to each input.
+ * @param {callback} callback - an optional callback.
+ */
+exports.convert = function (input = '.', outputDir = '.', options, callback) {
     // Create output dir if it does not exist already
-    if (!fs.existsSync(output)) {
-        fs.mkdirSync(output);
+    if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir);
     }
 
     if (fs.lstatSync(input).isFile()) { // Handle files
         var file = pa.basename(input)
         input = pa.dirname(input)
-        processFile(input, output, options, file, callback);
+        processFile(input, outputDir, options, file, callback);
     } else { // Handle dirs
         var files = fs.readdirSync(input);
         var cc = countingCallback(files, callback);
         files.forEach(function (file) {
             if (fs.lstatSync(input + '/' + file).isFile()) {
-                processFile(input, output, options, file, cc);
+                processFile(input, outputDir, options, file, cc);
             } else {
                 cc();
             }
