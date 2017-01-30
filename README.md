@@ -1,9 +1,9 @@
 batch-convert
 =============
 
-A small library to convert images or pdf files from a source to a target folder in a 
-different format and size. For one source file the output can be several images in 
-different sizes and formats by providing an array of options.
+A small library to convert images and other files e.g. pdf from a source to a target folder 
+in a custom format, size and name. For one source file there can be several new images by 
+providing an array of options.
 
 ## Installation
 
@@ -26,19 +26,22 @@ different sizes and formats by providing an array of options.
 
 This will copy and convert all images in the folder input to the folder output by creating a small and a big version. 
 The small version will get the postfix '_small' with a height of 400px and the big version with the postfix 
-'_big' and 1200px height. The with will be changed depending on the ratio. By default the output format is jpg with
+'_big' and 1200px height. The width will be changed depending on the ratio. By default the output format is jpg with 
 a quality of 100.
 
-__possible options__:
+### Possible Imput Options
 
     {
         'height': [in pixel]
         'width': [in pixel]
         'postfix': [allowed fs characters]
         'quality': [0-100], default = 100
-        'format': [jpg, png, gif, ...], default = 'jpg'
+        'format': [jpg, png, gif, ..., default = 'jpg'
     }
-    
+
+### Supported Formats
+This library uses GraphicsMagick for conversion. Check http://www.graphicsmagick.org/formats.html] to see 
+which import and export formats are supported
 
 ## Tests
 
