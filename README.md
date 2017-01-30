@@ -29,7 +29,7 @@ The small version will get the postfix '_small' with a height of 400px and the b
 '_big' and 1200px height. The width will be changed depending on the ratio. By default the output format is jpg with 
 a quality of 100.
 
-### Possible Imput Options
+### Possible Input Options
 
     {
         'height': [in pixel]
