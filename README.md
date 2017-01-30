@@ -49,4 +49,7 @@ which import and export formats are supported
 
 ## Release History
 
-* 0.1.0 Initial release
+* 0.1.0 - Initial release
+* 0.1.1 - Typos, default value for output
+* 0.1.2 - Default value for input, jsdoc
+* 0.1.3 - Update doc, fix typos

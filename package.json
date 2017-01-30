@@ -1,6 +1,6 @@
 {
     "name": "batch-convert",
-    "version": "0.1.1",
+    "version": "0.1.3",
     "description": "Converts a bunch of files like images or pdf to a new image with a custom format, size and name.",
     "main": "index.js",
     "dependencies": {
