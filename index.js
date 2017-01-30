@@ -24,13 +24,13 @@ function countingCallback(array, callback) {
  */
 
 /**
- * Converts all files in the source folder or the soruce file into the destiantion formats
+ * Converts all files in the source folder or the source file into the destination formats
  * defined by the options into the target directory.
  * 
  * @param {string} [input=.] - the input directory or file
  * @param {string} [outputDir=.] - the output directory
  * @param {{width: number, height: number, postfix: string, quality: number, format: string}[]} options - 
- *              the convert options apllied to each input.
+ *              the convert options applied to each input.
  * @param {callback} callback - an optional callback.
  */
 exports.convert = function (input = '.', outputDir = '.', options, callback) {
