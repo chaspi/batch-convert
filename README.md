@@ -46,4 +46,6 @@ __possible options__:
 
 ## Release History
 
-* 0.1.0 Initial release
+* 0.1.0 - Initial release
+* 0.1.1 - Typos, default value for output
+* 0.1.2 - Default value for input, jsdoc
