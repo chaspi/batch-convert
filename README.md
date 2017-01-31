@@ -29,19 +29,19 @@ The small version will get the postfix '_small' with a height of 400px and the b
 '_big' and 1200px height. The width will be changed depending on the ratio. By default the output format is jpg with 
 a quality of 100.
 
-### Possible Input Options
+### Possible Options
 
     {
-        'height': [in pixel]
-        'width': [in pixel]
-        'postfix': [allowed fs characters]
-        'quality': [0-100], default = 100
-        'format': [jpg, png, gif, ..., default = 'jpg'
+        'height': [in pixel]                             // Image height
+        'width': [in pixel]                              // Image width
+        'postfix': [allowed fs characters]               // Postfix for the file name e.g. image.jpg + '_small' = image_small.jpg
+        'quality': [0-100], default = 100                // The quality of the image if a compression is used
+        'format': [jpg, png, gif, ..., default = 'jpg'   // The format of the image
     }
 
 ### Supported Formats
-This library uses GraphicsMagick for conversion. Check http://www.graphicsmagick.org/formats.html] to see 
-which import and export formats are supported
+This library uses GraphicsMagick for conversion. Check http://www.graphicsmagick.org/formats.html to see 
+which import and export formats are supported.
 
 ## Tests
 
